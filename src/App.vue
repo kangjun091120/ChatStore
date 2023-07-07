@@ -1,9 +1,13 @@
 <template>
   <el-container>
     <el-header>
-      <el-button type="primary">登录</el-button>
+      <el-button class="login-button" type="text">
+        <el-icon class="icon-user" name="el-icon-user"></el-icon>
+        登录
+      </el-button>
     </el-header>
-    <el-main>
+    <el-main style="padding: 10px;">
+      <el-divider class="custom-divider"></el-divider>
       <div class="products-grid">
         <div class="product-card" v-for="product in products" :key="product.id">
           <el-card :body-style="{ padding: '0px' }">
@@ -14,6 +18,9 @@
             <el-image
               fit="cover"
               :src="product.image"
+              :loading="true"
+              height="200px"
+              width="200px"
               class="product-image"
             />
             <div style="padding: 14px;">
@@ -45,7 +52,20 @@ export default {
 .el-header {
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 10px;
+}
+
+.login-button {
+  color: gray;
+}
+
+.icon-user {
+  font-size: 24px;
+}
+
+.custom-divider {
+  border-top: 1px solid lightgray;
+  margin: 10px 0;
 }
 
 .products-grid {
@@ -70,6 +90,7 @@ export default {
 
 .product-image {
   height: 200px;
+  width: 200px;
   object-fit: cover;
 }
 </style>
