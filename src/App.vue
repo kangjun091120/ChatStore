@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <el-button class="login-button" type="primary" plain>
+      <el-button class="login-button" round>
         <el-icon class="icon-user">
           <User />
         </el-icon>
@@ -61,11 +61,12 @@ export default {
 }
 
 .login-button {
-  color: gray;
+  font-size: 18px;
+  height: 100%;
 }
 
 .icon-user {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .custom-divider {
