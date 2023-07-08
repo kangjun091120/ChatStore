@@ -2,7 +2,9 @@
   <el-container>
     <el-header>
       <el-button class="login-button" type="primary" plain>
-        <el-icon class="icon-user" name="el-icon-user"></el-icon>
+        <el-icon class="icon-user">
+          <User />
+        </el-icon>
         登录
       </el-button>
     </el-header>
@@ -15,13 +17,7 @@
               <div class="product-name">{{ product.name }}</div>
               <div class="product-price">{{ product.price }}</div>
             </div>
-            <el-image
-              fit="cover"
-              :src="product.image"
-              height="200px"
-              width="200px"
-              class="product-image"
-            />
+            <el-image fit="cover" :src="product.image" height="200px" width="200px" class="product-image" />
             <div style="padding: 14px;">
               <el-button type="primary">购买</el-button>
             </div>
