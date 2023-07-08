@@ -8,7 +8,7 @@
         登录
       </el-button>
       <el-dialog v-model="dialogLogin" title="Shipping address">
-        aaa
+        <Login />
       </el-dialog>
     </el-header>
     <el-main style="padding: 10px;">
@@ -33,8 +33,12 @@
 
 <script>
 import axios from 'axios';
+import Login from '@/components/Login.vue'
 
 export default {
+  components: {
+    Login
+  },
   data() {
     return {
       dialogLogin: false,
