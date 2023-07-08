@@ -1,12 +1,15 @@
 <template>
   <el-container>
     <el-header>
-      <el-button class="login-button" round>
+      <el-button class="login-button" round @click="dialogLogin = true">
         <el-icon class="icon-user">
           <User />
         </el-icon>
         登录
       </el-button>
+      <el-dialog v-model="dialogLogin" title="Shipping address">
+        aaa
+      </el-dialog>
     </el-header>
     <el-main style="padding: 10px;">
       <el-divider class="custom-divider"></el-divider>
@@ -34,18 +37,14 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      products: [
-        { id: 1, name: '商品1', price: '￥100', image: 'image1.jpg' },
-        { id: 2, name: '商品2', price: '￥200', image: 'image2.jpg' },
-        { id: 3, name: '商品3', price: '￥300', image: 'image3.jpg' },
-        // 添加更多商品...
-      ]
+      dialogLogin: false,
+      products: []
     }
   },
   async mounted() {
     try {
-      const response = await axios.get('http://127.0.0.1:5000/products');  // 用你的 API 替换这个 URL
-      this.products = response.data;  // 假设你的 API 返回的数据在 response.data 中
+      const response = await axios.get('http://127.0.0.1:5000/products');
+      this.products = response.data;
     } catch (error) {
       console.error('Failed to load products:', error);
     }
@@ -62,11 +61,12 @@ export default {
 
 .login-button {
   font-size: 18px;
-  height: 100%;
+  height: 110%;
+  width: 110px;
 }
 
 .icon-user {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .custom-divider {
