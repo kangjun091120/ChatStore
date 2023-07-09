@@ -7,9 +7,6 @@
         </el-icon>
         登录
       </el-button>
-      <el-dialog v-model="dialogLogin" title="Shipping address">
-        <Login />
-      </el-dialog>
     </el-header>
     <el-main style="padding: 10px;">
       <el-divider class="custom-divider"></el-divider>
@@ -22,26 +19,34 @@
             </div>
             <el-image fit="cover" :src="product.image" height="200px" width="200px" class="product-image" />
             <div style="padding: 14px;">
-              <el-button type="primary">购买</el-button>
+              <el-button type="primary" @click="dialogBuy = true">购买</el-button>
             </div>
           </el-card>
         </div>
       </div>
     </el-main>
   </el-container>
+  <el-dialog v-model="dialogLogin" title="Shipping address">
+    <Login />
+  </el-dialog>
+  <el-dialog v-model="dialogBuy" title="Shiping address">
+    <ProductInfo />
+  </el-dialog>
 </template>
 
 <script>
 import axios from 'axios';
 import Login from '@/components/Login.vue'
+import ProductInfo from '@/components/ProductInfo.vue'
 
 export default {
   components: {
-    Login
+    Login, ProductInfo
   },
   data() {
     return {
       dialogLogin: false,
+      dialogBuy: false,
       products: []
     }
   },
@@ -101,6 +106,7 @@ export default {
 .product-image {
   height: 200px;
   width: 200px;
+  margin-left: calc((100% - 200px) / 2);
   object-fit: cover;
 }
 </style>
