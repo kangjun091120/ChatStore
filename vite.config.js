@@ -9,5 +9,15 @@ export default defineConfig({
     alias: {
       "@": resolve(__dirname, "./src")
     }
+  },
+  build: {
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    reportCompressedSize: false,
+    sourcemap: false,
   }
 })
